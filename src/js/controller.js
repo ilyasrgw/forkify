@@ -6,7 +6,6 @@ import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
-import { async } from 'regenerator-runtime';
 import themeView from './views/themeView.js';
 import 'core-js/stable';
 import 'regenerator-runtime';
@@ -129,10 +128,6 @@ const controlTheme = function (newTheme) {
   themeView.setTheme(newTheme);
 };
 
-const newFeature = function () {
-  console.log('Welcome to the application');
-};
-
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipe);
@@ -143,6 +138,5 @@ const init = function () {
   addRecipeView.addHandlerUpload(controlAddRecipe);
   themeView.setTheme(model.state.theme);
   themeView.addHandlerChangeTheme(controlTheme);
-  newFeature();
 };
 init();
