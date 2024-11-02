@@ -129,6 +129,10 @@ const controlTheme = function (newTheme) {
   themeView.setTheme(newTheme);
 };
 
+const newFeature = function () {
+  console.log('Welcome to the application');
+};
+
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipe);
@@ -139,6 +143,6 @@ const init = function () {
   addRecipeView.addHandlerUpload(controlAddRecipe);
   themeView.setTheme(model.state.theme);
   themeView.addHandlerChangeTheme(controlTheme);
-  console.log('Welcome!');
+  newFeature();
 };
 init();
