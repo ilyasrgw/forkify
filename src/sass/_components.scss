@@ -1,0 +1,278 @@
+%btn {
+  background-image: var(--gradient);
+  border-radius: 10rem;
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  & > *:first-child {
+    margin-right: 1rem;
+  }
+}
+
+.btn {
+  @extend %btn;
+
+  padding: 1.5rem 4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  @media only screen and (max-width: $bp-medium) {
+    padding: 1.2rem 3rem;
+  }
+
+  // Small screens
+  @media only screen and (max-width: $bp-small) {
+    padding: 1rem 2.5rem;
+  }
+
+  svg {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: currentColor;
+  }
+}
+
+.btn--small {
+  &,
+  &:link,
+  &:visited {
+    @extend %btn;
+
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 1.25rem 2.25rem;
+    text-decoration: none;
+
+    svg {
+      height: 1.75rem;
+      width: 1.75rem;
+      fill: currentColor;
+    }
+  }
+}
+
+.btn--inline {
+  color: var(--primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: none;
+  background-color: var(--grey-light-1);
+  padding: 0.8rem 1.2rem;
+  border-radius: 10rem;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+
+  svg {
+    height: 1.6rem;
+    width: 1.6rem;
+    fill: currentColor;
+    margin: 0 0.2rem;
+  }
+
+  span {
+    margin: 0 0.4rem;
+  }
+
+  &:hover {
+    color: var(--grad-2);
+    background-color: var(--grey-light-2);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn--round {
+  background-image: var(--gradient);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  height: 4.5rem;
+  width: 4.5rem;
+  // margin-left: auto;
+  transition: all 0.2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: scale(1.07);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  svg {
+    height: 2.5rem;
+    width: 2.5rem;
+    fill: #fff;
+  }
+}
+
+.btn--tiny {
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    fill: var(--primary);
+    transition: all 0.3s;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover svg {
+    fill: var(--grad-2);
+    transform: translateY(-1px);
+  }
+
+  &:active svg {
+    fill: var(--grad-2);
+    transform: translateY(0);
+  }
+
+  &:not(:last-child) {
+    margin-right: 0.3rem;
+  }
+}
+
+.heading--2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  // transform: skewY(-3deg);
+}
+
+.heading--3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--grey-dark-1);
+  text-transform: uppercase;
+}
+
+.link:link,
+.link:visited {
+  color: var(--grey-dark-2);
+}
+
+.spinner {
+  margin: 5rem auto;
+  text-align: center;
+
+  svg {
+    height: 6rem;
+    width: 6rem;
+    fill: var(--primary);
+    animation: rotate 2s infinite linear;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.message,
+.error {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 5rem 4rem;
+
+  display: flex;
+
+  svg {
+    height: 3rem;
+    width: 3rem;
+    fill: var(--primary);
+    transform: translateY(-0.3rem);
+  }
+
+  p {
+    margin-left: 1.5rem;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+}
+.slider {
+  width: 8.5rem;
+  height: 4.2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 2rem;
+  background-color: var(--grey-light-2);
+  padding: 1rem 1.2rem;
+  margin: 1rem;
+  transition: all 0.2s;
+  @media only screen and (max-width: $bp-small) {
+    width: 6rem;
+    height: 3rem;
+    padding: 0.8rem;
+  }
+
+  svg {
+    width: 2.5rem;
+    fill: var(--grey-dark-2);
+    transition: width 0.2s;
+    @media only screen and (max-width: $bp-medium) {
+      width: 2rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+      width: 1.5rem;
+    }
+  }
+  &__circle {
+    display: block;
+    height: 2.8rem;
+    width: 2.8rem;
+    content: '';
+
+    background: var(--gradient);
+    border-radius: 50%;
+    z-index: 1000;
+    transition: all 0.2s;
+    position: absolute;
+    left: 1rem;
+    // left: 4.5rem // transition to night;
+    @media only screen and (max-width: $bp-small) {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}

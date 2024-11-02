@@ -1,0 +1,121 @@
+// @import 'theme-light';
+// @import 'theme-dark';
+
+:root {
+  --background: #fff;
+  --primary: #f38e82;
+  --grad-1: #fbdb89;
+  --grad-2: #f48982;
+  --grey-light-1: #f9f5f3;
+  --grey-light-2: #f2efee;
+  --grey-light-3: #d3c7c3;
+  --grey-dark-1: #615551;
+  --grey-dark-2: #918581;
+  --gradient: linear-gradient(to right bottom, #fbdb89, #f48982);
+}
+.dark-theme {
+  --background: #1e1e1e;
+  --primary: #f38e82;
+  --grad-1: #574e3f;
+  --grad-2: #8b6e54;
+  --grey-light-1: #2e2e2e;
+  --grey-light-2: #3a3a3a;
+  --grey-light-3: #5c5c5c;
+  --grey-dark-1: #bfb8b5;
+  --grey-dark-2: #a4a4a4;
+  --gradient: linear-gradient(to right bottom, #574e3f, #8b6e54);
+}
+
+$bp-large: 78.15em; // 1250px
+$bp-medium: 61.25em; // 980px
+$bp-small: 37.5em; // 600px
+$bp-smallest: 31.25em; // 500px
+
+// @function theme-color($color) {
+//   @return map-get($current-theme, $color);
+// }
+
+// body {
+//   @include theme($dark-theme);
+// }
+
+// .dark-theme {
+//   @include theme($dark-theme);
+// }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 50%;
+  }
+  @media only screen and (max-width: $bp-small) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--grey-dark-1);
+  background-color: var(--background);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 2 * 4vw);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.container {
+  max-width: 120rem;
+  overflow: hidden;
+  min-height: 117rem;
+  margin: 4vw auto;
+  background-color: var(--background);
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem 0.5rem rgba(var(--grey-dark-1), 0.2);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  display: grid;
+  grid-template-rows: 10rem minmax(100rem, auto);
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    'head head'
+    'list recipe';
+
+  @media only screen and (max-width: $bp-large) {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    min-height: auto;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'head'
+      'list'
+      'recipe';
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 1rem;
+    box-shadow: none;
+    min-height: auto;
+    grid-template-rows: auto;
+  }
+}

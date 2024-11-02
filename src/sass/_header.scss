@@ -1,0 +1,180 @@
+.header {
+  grid-area: head;
+  background-color: var(--grey-light-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+
+  &__logo {
+    margin-left: 4rem;
+    height: 4.6rem;
+    display: block;
+  }
+  // @media only screen and (max-width: $bp-medium) {
+  //   margin-left: 2rem;
+  //   height: 4.6rem;
+  // }
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    &__logo {
+      margin-left: 0;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.search {
+  background-color: var(--background);
+  border-radius: 10rem;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+  transition: all 0.3s;
+
+  &:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 0.7rem 3rem rgba(var(--grey-dark-1), 0.08);
+  }
+  @media only screen and (max-width: $bp-small) {
+    margin-bottom: 2rem; // Add space below the search for small breakpoints
+  }
+
+  &__field {
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.5rem;
+    width: 30rem;
+
+    @media only screen and (max-width: $bp-small) {
+      width: auto;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: var(--grey-light-3);
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      width: auto;
+
+      &::placeholder {
+        color: white;
+      }
+    }
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.4rem;
+      width: 20rem;
+    }
+  }
+
+  &__btn {
+    font-weight: 600;
+    font-family: inherit;
+  }
+}
+
+.nav {
+  align-self: stretch;
+  margin-right: 2.5rem;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__btn {
+    height: 100%;
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 1.5rem;
+    transition: all 0.3s;
+
+    display: flex;
+    align-items: center;
+
+    svg {
+      height: 2.4rem;
+      width: 2.4rem;
+      fill: var(--primary);
+      margin-right: 0.7rem;
+      transform: translateY(-1px);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: var(--grey-light-2);
+    }
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    align-self: center; // Centers the nav
+    margin-right: 0; // Remove any right margin for center alignment
+    margin-top: 1rem; // Optional: add some spacing above nav items
+
+    &__list {
+      flex-direction: column; // Stack nav items vertically
+      align-items: center; // Center nav items within flex column
+    }
+  }
+}
+
+.bookmarks {
+  padding: 1rem 0;
+  position: absolute;
+  // right: 0;
+  right: -2.5rem;
+  z-index: 10;
+  width: 40rem;
+  background-color: var(--background);
+  box-shadow: 0 0.8rem 5rem 2rem rgba(var(--grey-dark-1), 0.1);
+
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s 0.2s;
+
+  &__list {
+    list-style: none;
+  }
+
+  &__field {
+    cursor: pointer;
+    padding: 0 4rem;
+
+    display: flex;
+    align-items: center;
+    height: 100%;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: var(--grey-light-2);
+    }
+  }
+
+  &:hover,
+  .nav__btn--bookmarks:hover + & {
+    visibility: visible;
+    opacity: 1;
+  }
+}
